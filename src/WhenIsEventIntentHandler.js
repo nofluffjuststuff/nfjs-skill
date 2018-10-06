@@ -1,5 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const NFJSClient = require('./NFJSClient');
+const supportsDisplay = require('./DisplayHelper.js');
 
 const WhenIsEventIntentHandler = {
   canHandle(handlerInput) {
@@ -28,6 +29,26 @@ const WhenIsEventIntentHandler = {
           var nextShowVenue = nextShow.location.description;
           var nextEventResponse = nextShowName + " will be held " + nextShowDates + ", in " + nextShowLoc + " at " + nextShowVenue + ".";
           var speechOutput = nextEventResponse;
+
+          if (supportsDisplay(handlerInput)) {
+            const hotelImage = new Alexa.ImageHelper()
+              .addImageInstance('https://nofluffjuststuff.com' + nextShow.hotelImagePath)
+              .getImage();
+
+            const primaryText = new Alexa.RichTextContentHelper()
+              .withPrimaryText(speechOutput)
+              .getTextContent();
+
+            handlerInput.responseBuilder.addRenderTemplateDirective({
+              type: 'BodyTemplate1',
+              token: 'string',
+              backButton: 'HIDDEN',
+              backgroundImage: hotelImage,
+              image: hotelImage,
+              title: "No Fluff Just Stuff",
+              textContent: primaryText
+            });
+          }
 
           resolve(handlerInput.responseBuilder
             .speak(speechOutput)

@@ -1,5 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const NFJSClient = require('./NFJSClient');
+const supportsDisplay = require('./DisplayHelper.js');
 const NEXT_EVENT_MESSAGE = "The next No Fluff Just Stuff event is ";
 
 const NextEventIntentHandler = {
@@ -18,12 +19,33 @@ const NextEventIntentHandler = {
         var nextEventResponse = nextShowName + ", " + nextShowDates + ", in " + nextShowLoc + ".";
         var speechOutput = NEXT_EVENT_MESSAGE + nextEventResponse;
 
+        if (supportsDisplay(handlerInput)) {
+          const hotelImage = new Alexa.ImageHelper()
+            .addImageInstance('https://nofluffjuststuff.com' + nextShow.hotelImagePath)
+            .getImage();
+
+          const primaryText = new Alexa.RichTextContentHelper()
+            .withPrimaryText(speechOutput)
+            .getTextContent();
+
+          handlerInput.responseBuilder.addRenderTemplateDirective({
+            type: 'BodyTemplate1',
+            token: 'string',
+            backButton: 'HIDDEN',
+            backgroundImage: hotelImage,
+            image: hotelImage,
+            title: "No Fluff Just Stuff",
+            textContent: primaryText
+          });
+        }
+
         resolve(handlerInput.responseBuilder
           .speak(speechOutput)
           .withSimpleCard('No Fluff Just Stuff', nextEventResponse)
           .withShouldEndSession(false)
           .getResponse());
       }).catch((error) => {
+        console.log(error);
         resolve(handlerInput.responseBuilder.speak("I'm unable to get NFJS info right now. Ask again later.").getResponse());
       });
     });

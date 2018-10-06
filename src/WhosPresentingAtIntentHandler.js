@@ -1,5 +1,6 @@
 const Alexa = require('ask-sdk-core');
 const NFJSClient = require('./NFJSClient');
+const supportsDisplay = require('./DisplayHelper.js');
 
 const WhosPresentingAtIntentHandler = {
   canHandle(handlerInput) {
@@ -26,6 +27,27 @@ const WhosPresentingAtIntentHandler = {
             var names = body.map(speaker => speaker.speaker.name);
             var whosAtResponse = [names.slice(0, -1).join(', '), names.slice(-1)[0]].join(names.length < 2 ? '' : ', and ');
             var speechOutput = "The following speakers are presenting at " + nextShow.name + ": " + whosAtResponse;
+
+            if (supportsDisplay(handlerInput)) {
+              const hotelImage = new Alexa.ImageHelper()
+                .addImageInstance('https://nofluffjuststuff.com' + nextShow.hotelImagePath)
+                .getImage();
+
+              const primaryText = new Alexa.RichTextContentHelper()
+                .withPrimaryText(speechOutput)
+                .getTextContent();
+
+              handlerInput.responseBuilder.addRenderTemplateDirective({
+                type: 'BodyTemplate1',
+                token: 'string',
+                backButton: 'HIDDEN',
+                backgroundImage: hotelImage,
+                image: hotelImage,
+                title: "No Fluff Just Stuff",
+                textContent: primaryText
+              });
+            }
+
             resolve(handlerInput.responseBuilder
               .speak(speechOutput)
               .withSimpleCard('No Fluff Just Stuff', whosAtResponse)
