@@ -1,0 +1,80 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "no fluff just stuff",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "NextEventIntent",
+                    "slots": [],
+                    "samples": [
+                        "where is the next show",
+                        "where is the next event",
+                        "when is the next show",
+                        "when is the next event",
+                        "next show",
+                        "next event"
+                    ]
+                },
+                {
+                    "name": "WhosPresentingAtIntent",
+                    "slots": [
+                        {
+                            "name": "eventQuery",
+                            "type": "AMAZON.LITERAL"
+                        }
+                    ],
+                    "samples": [
+                        "Who is presenting in {Atlanta|eventQuery}",
+                        "Who is speaking in {Atlanta|eventQuery} ",
+                        "Who are the speakers at {Chicago | eventQuery}",
+                        "Who are the presenters at {Pacific Northwest Software Symposium | eventQuery}",
+                        "{Denver | eventQuery} speakers",
+                        "{Great Lakes Software Symposium | eventQuery} presenters",
+                        "Who is speaking at {Seattle|eventQuery}",
+                        "Who is presenting at {Dallas|eventQuery}",
+                        "Who is speaking at the {Lone Star Software Symposium|eventQuery} event",
+                        "Who is presenting at the {Reston|eventQuery} event"
+                    ]
+                },
+                {
+                    "name": "WhenIsEventIntent",
+                    "slots": [
+                        {
+                            "name": "eventLoc",
+                            "type": "AMAZON.LITERAL"
+                        }
+                    ],
+                    "samples": [
+                        "Where is the {Seattle | eventLoc} show",
+                        "When is the {Seattle | eventLoc} show",
+                        "When is the {Seattle | eventLoc} event",
+                        "Where is the {Chicago | eventLoc} event",
+                        "Where is {Pacific Northwest Software Symposium | eventLoc}",
+                        "When is {Pacific Northwest Software Symposium | eventLoc}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
