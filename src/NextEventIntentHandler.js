@@ -21,7 +21,7 @@ const NextEventIntentHandler = {
 
         if (supportsDisplay(handlerInput)) {
           const nfjsImage = new Alexa.ImageHelper()
-            .addImageInstance('https://nofluffjuststuff.com/styles/nfjs2018/nfjs_logo.svg')
+            .addImageInstance('http://www.habuma.com/nfjs/NFJS_Tiled_Muted.png')
             .getImage();
 
           const hotelImage = new Alexa.ImageHelper()
@@ -38,7 +38,7 @@ const NextEventIntentHandler = {
             backButton: 'HIDDEN',
             backgroundImage: nfjsImage,
             image: hotelImage,
-            title: "No Fluff Just Stuff",
+            title: "Next event: " + nextShowName,
             textContent: primaryText
           });
         }

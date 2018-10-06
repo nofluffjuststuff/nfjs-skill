@@ -1,4 +1,5 @@
 const Alexa = require('ask-sdk-core');
+const supportsDisplay = require('./DisplayHelper.js');
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -7,10 +8,30 @@ const LaunchRequestHandler = {
   handle(handlerInput) {
     const speechText = 'Welcome to No Fluff Just Stuff. Ask me about upcoming NFJS events.'
 
+    if (supportsDisplay(handlerInput)) {
+      const nfjsImage = new Alexa.ImageHelper()
+        .addImageInstance('http://www.habuma.com/nfjs/NFJS_Logo.png')
+        .getImage();
+
+      const primaryText = new Alexa.RichTextContentHelper()
+        .withPrimaryText("Welcome to No Fluff Just Stuff!")
+        .getTextContent();
+
+      handlerInput.responseBuilder.addRenderTemplateDirective({
+        type: 'BodyTemplate6',
+        token: 'string',
+        backButton: 'HIDDEN',
+        backgroundImage: nfjsImage,
+        textContent: primaryText
+      });
+    }
+
     return handlerInput.responseBuilder
       .speak(speechText)
       .reprompt(speechText)
       .withSimpleCard('No Fluff Just Stuff', speechText)
+      .addHintDirective("Ask me about upcoming NFJS events.")
+      .withShouldEndSession(false)
       .getResponse();
   }
 };

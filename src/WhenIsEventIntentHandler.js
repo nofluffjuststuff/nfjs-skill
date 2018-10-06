@@ -31,6 +31,10 @@ const WhenIsEventIntentHandler = {
           var speechOutput = nextEventResponse;
 
           if (supportsDisplay(handlerInput)) {
+            const nfjsImage = new Alexa.ImageHelper()
+              .addImageInstance('http://www.habuma.com/nfjs/NFJS_Tiled_Muted.png')
+              .getImage();
+
             const hotelImage = new Alexa.ImageHelper()
               .addImageInstance('https://nofluffjuststuff.com' + nextShow.hotelImagePath)
               .getImage();
@@ -40,12 +44,12 @@ const WhenIsEventIntentHandler = {
               .getTextContent();
 
             handlerInput.responseBuilder.addRenderTemplateDirective({
-              type: 'BodyTemplate1',
+              type: 'BodyTemplate2',
               token: 'string',
               backButton: 'HIDDEN',
-              backgroundImage: hotelImage,
+              backgroundImage: nfjsImage,
               image: hotelImage,
-              title: "No Fluff Just Stuff",
+              title: nextShowName,
               textContent: primaryText
             });
           }
