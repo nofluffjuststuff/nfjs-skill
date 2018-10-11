@@ -30,7 +30,7 @@ const WhosPresentingAtIntentHandler = {
 
             if (supportsDisplay(handlerInput)) {
               const nfjsImage = new Alexa.ImageHelper()
-                .addImageInstance('http://www.habuma.com/nfjs/NFJS_Tiled_Muted.png')
+                .addImageInstance('http://www.habuma.com/nfjs/NFJS_Background.png')
                 .getImage();
 
               const hotelImage = new Alexa.ImageHelper()

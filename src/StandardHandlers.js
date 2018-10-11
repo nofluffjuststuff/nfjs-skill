@@ -10,11 +10,11 @@ const LaunchRequestHandler = {
 
     if (supportsDisplay(handlerInput)) {
       const nfjsImage = new Alexa.ImageHelper()
-        .addImageInstance('http://www.habuma.com/nfjs/NFJS_Logo.png')
+        .addImageInstance('http://www.habuma.com/nfjs/NFJS_Title.png')
         .getImage();
 
       const primaryText = new Alexa.RichTextContentHelper()
-        .withPrimaryText("Welcome to No Fluff Just Stuff!")
+        .withPrimaryText("No Fluff Just Stuff")
         .getTextContent();
 
       handlerInput.responseBuilder.addRenderTemplateDirective({
@@ -30,7 +30,7 @@ const LaunchRequestHandler = {
       .speak(speechText)
       .reprompt(speechText)
       .withSimpleCard('No Fluff Just Stuff', speechText)
-      .addHintDirective("Ask me about upcoming NFJS events.")
+      .addHintDirective("When is the next event?")
       .withShouldEndSession(false)
       .getResponse();
   }

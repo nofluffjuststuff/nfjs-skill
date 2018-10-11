@@ -32,19 +32,30 @@ const WhenIsEventIntentHandler = {
 
           if (supportsDisplay(handlerInput)) {
             const nfjsImage = new Alexa.ImageHelper()
-              .addImageInstance('http://www.habuma.com/nfjs/NFJS_Tiled_Muted.png')
+              .addImageInstance('http://www.habuma.com/nfjs/NFJS_Background.png')
               .getImage();
 
             const hotelImage = new Alexa.ImageHelper()
               .addImageInstance('https://nofluffjuststuff.com' + nextShow.hotelImagePath)
               .getImage();
 
+            const displayTemplate = `
+              <b>${nextShowName}</b><br/>
+              ${nextShow.mediumDates}<br/>
+              ${nextShowLoc}<br/><br/>
+              <font size="2">
+              ${nextShow.location.description}<br/>
+              ${nextShow.location.address1}<br/>
+              ${nextShow.location.city}, ${nextShow.location.stateCodeDisplay} ${nextShow.location.zip}
+              </font>
+            `;
+
             const primaryText = new Alexa.RichTextContentHelper()
-              .withPrimaryText(speechOutput)
+              .withPrimaryText(displayTemplate)
               .getTextContent();
 
             handlerInput.responseBuilder.addRenderTemplateDirective({
-              type: 'BodyTemplate2',
+              type: 'BodyTemplate3',
               token: 'string',
               backButton: 'HIDDEN',
               backgroundImage: nfjsImage,
