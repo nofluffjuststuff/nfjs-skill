@@ -10,11 +10,11 @@ Once deployed, you can open the skill and ask things such as the following:
  - "Who is presenting at the Chicago show?" (not yet implemented)
  - "What talks is Craig Walls giving in Minneapolis?" (not yet implemented)
 
-== Building and deploying
+== Deploying
 
-Because this is a NodeJS project, the easiest way to deploy the skill is to zip up the contents of the `src` directory and upload it to AWS Lambda. Once uploaded, link the function to an Alexa skill.
+This project includes a skill.json file, enabling deployment using the https://developer.amazon.com/docs/smapi/ask-cli-intro.html#alexa-skills-kit-command-line-interface-ask-cli[ASK CLI].
 
-TODO: Give a step by step for deploying the skill.
+Assuming that you have the ASK CLI installed and have already performed `ask init` to authentication the CLI with your Amazon account, you can deploy the skill by issuing `ask deploy` from within the root directory of the project.
 
 == Motivation
 
