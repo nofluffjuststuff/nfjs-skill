@@ -23,12 +23,11 @@ const WhenIsEventIntentHandler = {
           resolve(handlerInput.responseBuilder.speak("I don't know which event you are are asking about. Please ask again with the event's name or location.").getResponse());
         } else {
           var nextShow = futureShows[0];
-          var nextShowName = nextShow.name;
-          var nextShowDates = nextShow.shortDates
-          var nextShowLoc = nextShow.location.metroArea;
-          var nextShowVenue = nextShow.location.description;
-          var nextEventResponse = nextShowName + " will be held " + nextShowDates + ", in " + nextShowLoc + " at " + nextShowVenue + ".";
-          var speechOutput = nextEventResponse;
+
+          // put show into session to give context to future intents
+          handlerInput.attributesManager.setSessionAttributes(nextShow);
+
+          var nextEventResponse = nextShow.name + " will be held " + nextShow.shortDates + ", in " + nextShow.location.metroArea + " at " + nextShow.location.description + ".";
 
           if (supportsDisplay(handlerInput)) {
             const nfjsImage = new Alexa.ImageHelper()
@@ -40,9 +39,9 @@ const WhenIsEventIntentHandler = {
               .getImage();
 
             const displayTemplate = `
-              <b>${nextShowName}</b><br/>
+              <b>${nextShow.name}</b><br/>
               ${nextShow.mediumDates}<br/>
-              ${nextShowLoc}<br/><br/>
+              ${nextShow.location.metroArea}<br/><br/>
               <font size="2">
               ${nextShow.location.description}<br/>
               ${nextShow.location.address1}<br/>
@@ -60,13 +59,13 @@ const WhenIsEventIntentHandler = {
               backButton: 'HIDDEN',
               backgroundImage: nfjsImage,
               image: hotelImage,
-              title: nextShowName,
+              title: nextShow.name,
               textContent: primaryText
             });
           }
 
           resolve(handlerInput.responseBuilder
-            .speak(speechOutput)
+            .speak(nextEventResponse)
             .withSimpleCard('No Fluff Just Stuff', nextEventResponse)
             .withShouldEndSession(false)
             .getResponse());

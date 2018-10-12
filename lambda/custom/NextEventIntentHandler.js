@@ -13,13 +13,11 @@ const NextEventIntentHandler = {
       NFJSClient.getNFJSData('/show/upcoming/all').then((body) => {
         var futureShows = body.filter(show => !show.canceled);
         var nextShow = futureShows[0];
-        var nextShowName = nextShow.name;
-        var nextShowDates = nextShow.shortDates
-        var nextShowLoc = nextShow.location.metroArea;
-        var nextEventResponse = nextShowName + ", " + nextShowDates + ", in " + nextShowLoc + ".";
-        var speechOutput = NEXT_EVENT_MESSAGE + nextEventResponse;
 
-        // location.displayUrl
+        // put show into session to give context to future intents
+        handlerInput.attributesManager.setSessionAttributes(nextShow);
+
+        var nextEventResponse = NEXT_EVENT_MESSAGE + nextShow.name + ", " + nextShow.shortDates + ", in " + nextShow.location.metroArea + ".";
 
         if (supportsDisplay(handlerInput)) {
           const nfjsImage = new Alexa.ImageHelper()
@@ -31,9 +29,9 @@ const NextEventIntentHandler = {
             .getImage();
 
           const displayTemplate = `
-            <b>${nextShowName}</b><br/>
+            <b>${nextShow.name}</b><br/>
             ${nextShow.mediumDates}<br/>
-            ${nextShowLoc}<br/><br/>
+            ${nextShow.location.metroArea}<br/><br/>
             <font size="2">
             ${nextShow.location.description}<br/>
             ${nextShow.location.address1}<br/>
@@ -51,13 +49,13 @@ const NextEventIntentHandler = {
             backButton: 'HIDDEN',
             backgroundImage: nfjsImage,
             image: hotelImage,
-            title: "Next event: " + nextShowName,
+            title: "Next event: " + nextShow.name,
             textContent: primaryText
           });
         }
 
         resolve(handlerInput.responseBuilder
-          .speak(speechOutput)
+          .speak(nextEventResponse)
           .withSimpleCard('No Fluff Just Stuff', nextEventResponse)
           .withShouldEndSession(false)
           .getResponse());
@@ -65,7 +63,7 @@ const NextEventIntentHandler = {
         console.log(error);
         resolve(handlerInput.responseBuilder.speak("I'm unable to get NFJS info right now. Ask again later.").getResponse());
       });
-    });
+    })
   }
 };
 
