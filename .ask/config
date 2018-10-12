@@ -16,11 +16,11 @@
       },
       "resources": {
         "manifest": {
-          "eTag": "e7f239806365e74671dee2a9bae2f6f7"
+          "eTag": "c706efecfcb879ea4d38a6747830cb2a"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "5cd0ccd003e8036d4e3e93592c32174a"
+            "eTag": "c7131545732d244299c7f5f5dee2faa9"
           }
         },
         "lambda": [
@@ -31,7 +31,7 @@
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "59a29209-cb1e-4770-8353-2521149dc83a"
+            "revisionId": "1ee43d38-e8bd-4da0-8fa7-fb9878e75c66"
           }
         ]
       }
