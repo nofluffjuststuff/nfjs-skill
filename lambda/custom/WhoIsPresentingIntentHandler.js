@@ -11,7 +11,7 @@ const WhosPresentingIntentHandler = {
     return new Promise((resolve, reject) => {
         var nextShow = handlerInput.attributesManager.getSessionAttributes();
         if (nextShow == null) {
-            resolve(handlerInput.responseBuilder.speak("I don't know which event you are are asking about. Please ask again with the event's name or location.").getResponse());
+            resolve(handlerInput.responseBuilder.speak("I don't know which event you are asking about. Please ask again with the event's name or location.").getResponse());
         } else {
             NFJSClient.getNFJSData('/show/' + nextShow.id + '/show_speaker').then((body) =>{
                 var names = body.map(speaker => speaker.speaker.name);

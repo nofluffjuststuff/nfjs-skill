@@ -20,7 +20,7 @@ const WhosPresentingAtIntentHandler = {
           return !show.canceled && (lcMetroNoSpace===lcEventQuery || lcMetroArea===lcEventQuery || lcShowName===lcEventQuery);
         });
         if (futureShows.length == 0) {
-          resolve(handlerInput.responseBuilder.speak("I don't know which event you are are asking about. Please ask again with the event's name or location.").getResponse());
+          resolve(handlerInput.responseBuilder.speak("I don't know which event you are asking about. Please ask again with the event's name or location.").getResponse());
         } else {
           var nextShow = futureShows[0];
           NFJSClient.getNFJSData('/show/' + nextShow.id + '/show_speaker').then((body) =>{
