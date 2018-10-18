@@ -59,13 +59,14 @@ const CancelAndStopIntentHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
+    const cardText = 'Thanks for asking about NFJS! Goodbye!';
     const speechText = `
     <speak>Thanks for asking about NFJS! <say-as interpret-as="interjection">Goodbye</say-as>!</speak>
     `;
 
     return handlerInput.responseBuilder
       .speak(speechText)
-      .withSimpleCard('No Fluff Just Stuff', speechText)
+      .withSimpleCard('No Fluff Just Stuff', cardText)
       .getResponse();
   }
 };
