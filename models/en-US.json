@@ -56,17 +56,6 @@
           ]
         },
         {
-          "name": "WhosPresentingIntent",
-          "samples": [
-            "Who is presenting",
-            "Who is speaking",
-            "Who are the speakers",
-            "Who are the presenters",
-            "Speakers",
-            "Presenters"
-          ]
-        },
-        {
           "name": "WhenIsEventIntent",
           "slots": [
             {

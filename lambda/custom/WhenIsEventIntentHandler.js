@@ -23,10 +23,6 @@ const WhenIsEventIntentHandler = {
           resolve(handlerInput.responseBuilder.speak("I don't know which event you are asking about. Please ask again with the event's name or location.").getResponse());
         } else {
           var nextShow = futureShows[0];
-
-          // put show into session to give context to future intents
-          handlerInput.attributesManager.setSessionAttributes(nextShow);
-
           var nextEventResponse = nextShow.name + " will be held " + nextShow.shortDates + ", in " + nextShow.location.metroArea + " at " + nextShow.location.description + ".";
 
           if (supportsDisplay(handlerInput)) {
@@ -67,7 +63,6 @@ const WhenIsEventIntentHandler = {
           resolve(handlerInput.responseBuilder
             .speak(nextEventResponse)
             .withSimpleCard('No Fluff Just Stuff', nextEventResponse)
-            .withShouldEndSession(false)
             .getResponse());
         }
       }).catch((error) => {

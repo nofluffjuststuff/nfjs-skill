@@ -13,10 +13,6 @@ const NextEventIntentHandler = {
       NFJSClient.getNFJSData('/show/upcoming/all').then((body) => {
         var futureShows = body.filter(show => !show.canceled);
         var nextShow = futureShows[0];
-
-        // put show into session to give context to future intents
-        handlerInput.attributesManager.setSessionAttributes(nextShow);
-
         var nextEventResponse = NEXT_EVENT_MESSAGE + nextShow.name + ", " + nextShow.shortDates + ", in " + nextShow.location.metroArea + ".";
 
         if (supportsDisplay(handlerInput)) {
@@ -57,7 +53,6 @@ const NextEventIntentHandler = {
         resolve(handlerInput.responseBuilder
           .speak(nextEventResponse)
           .withSimpleCard('No Fluff Just Stuff', nextEventResponse)
-          .withShouldEndSession(false)
           .getResponse());
       }).catch((error) => {
         console.log(error);

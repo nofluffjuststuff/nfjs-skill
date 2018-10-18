@@ -73,7 +73,6 @@ const WhosPresentingAtIntentHandler = {
             resolve(handlerInput.responseBuilder
               .speak(speechOutput)
               .withSimpleCard('No Fluff Just Stuff', whosAtResponse)
-              .withShouldEndSession(false)
               .getResponse());
           }).catch((error) => {
             console.log(error);
