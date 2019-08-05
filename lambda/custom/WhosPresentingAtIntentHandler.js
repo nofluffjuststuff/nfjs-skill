@@ -14,7 +14,7 @@ const WhosPresentingAtIntentHandler = {
       NFJSClient.getNFJSData('/show/upcoming/all').then((body) => {
         var futureShows = body.filter(show => {
           var lcEventQuery = eventQuery.toLowerCase();
-          var lcMetroNoSpace = show.location.metroNoSpace.toLowerCase();
+          var lcMetroNoSpace = show.location.metro.toLowerCase();
           var lcMetroArea = show.location.metroArea.toLowerCase();
           var lcShowName = show.name.toLowerCase();
           return !show.canceled && (lcMetroNoSpace===lcEventQuery || lcMetroArea===lcEventQuery || lcShowName===lcEventQuery);
@@ -67,7 +67,9 @@ const WhosPresentingAtIntentHandler = {
                 listItems: speakerListItems
               };
 
-              handlerInput.responseBuilder.addRenderTemplateDirective(templateDirective);
+              handlerInput
+                .responseBuilder
+                  .addRenderTemplateDirective(templateDirective);
             }
 
             resolve(handlerInput.responseBuilder

@@ -8,7 +8,7 @@
           "apis": {
             "custom": {
               "endpoint": {
-                "uri": "ask-custom-skill-nfjs-default"
+                "uri": "arn:aws:lambda:us-east-1:494442948374:function:ask-custom-skill-nfjs-default"
               }
             }
           }
@@ -16,22 +16,25 @@
       },
       "resources": {
         "manifest": {
-          "eTag": "c706efecfcb879ea4d38a6747830cb2a"
+          "eTag": "9b948b995852d89356fe62f316809ec4"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "2d3f7af07106e9c90a50b668dd0c5936"
+            "eTag": "60f4dda470a1d419b107297850cf0bc7"
           }
         },
         "lambda": [
           {
-            "arn": "arn:aws:lambda:us-east-1:494442948374:function:ask-custom-skill-nfjs-default",
-            "functionName": "arn:aws:lambda:us-east-1:494442948374:function:ask-custom-skill-nfjs-default",
-            "awsRegion": "us-east-1",
             "alexaUsage": [
               "custom/default"
             ],
-            "revisionId": "dc746a40-c4b5-4013-a765-2962a048697a"
+            "arn": "arn:aws:lambda:us-east-1:494442948374:function:ask-custom-skill-nfjs-default",
+            "awsRegion": "us-east-1",
+            "codeUri": "lambda/custom",
+            "functionName": "ask-custom-skill-nfjs-default",
+            "handler": "index.handler",
+            "revisionId": "5f3b1725-aacc-4481-88bd-acaa12116135",
+            "runtime": "nodejs8.10"
           }
         ]
       }

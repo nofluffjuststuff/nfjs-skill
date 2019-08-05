@@ -14,7 +14,7 @@ const WhenIsEventIntentHandler = {
       NFJSClient.getNFJSData('/show/upcoming/all').then((body) => {
         var futureShows = body.filter(show => {
           var lcEventQuery = eventQuery.toLowerCase();
-          var lcMetroNoSpace = show.location.metroNoSpace.toLowerCase();
+          var lcMetroNoSpace = show.location.metro.toLowerCase();
           var lcMetroArea = show.location.metroArea.toLowerCase();
           var lcShowName = show.name.toLowerCase();
           return !show.canceled && (lcMetroNoSpace===lcEventQuery || lcMetroArea===lcEventQuery || lcShowName===lcEventQuery);

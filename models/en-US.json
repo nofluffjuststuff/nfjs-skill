@@ -39,20 +39,20 @@
           "slots": [
             {
               "name": "eventQuery",
-              "type": "AMAZON.LITERAL"
+              "type": "AMAZON.SearchQuery"
             }
           ],
           "samples": [
-            "Who is presenting in {Atlanta|eventQuery}",
-            "Who is speaking in {Atlanta|eventQuery} ",
-            "Who are the speakers at {Chicago | eventQuery}",
-            "Who are the presenters at {Pacific Northwest Software Symposium | eventQuery}",
-            "{Denver | eventQuery} speakers",
-            "{Great Lakes Software Symposium | eventQuery} presenters",
-            "Who is speaking at {Seattle|eventQuery}",
-            "Who is presenting at {Dallas|eventQuery}",
-            "Who is speaking at the {Lone Star Software Symposium|eventQuery} event",
-            "Who is presenting at the {Reston|eventQuery} event"
+            "Who is presenting in {eventQuery}",
+            "Who is speaking in {eventQuery} ",
+            "Who are the speakers at {eventQuery}",
+            "Who are the presenters at {eventQuery}",
+            "{eventQuery} speakers",
+            "{eventQuery} presenters",
+            "Who is speaking at {eventQuery}",
+            "Who is presenting at {eventQuery}",
+            "Who is speaking at the {eventQuery} event",
+            "Who is presenting at the {eventQuery} event"
           ]
         },
         {
@@ -60,16 +60,16 @@
           "slots": [
             {
               "name": "eventLoc",
-              "type": "AMAZON.LITERAL"
+              "type": "AMAZON.SearchQuery"
             }
           ],
           "samples": [
-            "Where is the {Seattle | eventLoc} show",
-            "When is the {Seattle | eventLoc} show",
-            "When is the {Seattle | eventLoc} event",
-            "Where is the {Chicago | eventLoc} event",
-            "Where is {Pacific Northwest Software Symposium | eventLoc}",
-            "When is {Pacific Northwest Software Symposium | eventLoc}"
+            "Where is the {eventLoc} show",
+            "When is the {eventLoc} show",
+            "When is the {eventLoc} event",
+            "Where is the {eventLoc} event",
+            "Where is {eventLoc}",
+            "When is {eventLoc}"
           ]
         },
         {
