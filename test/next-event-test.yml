@@ -1,0 +1,10 @@
+---
+configuration:
+  locales: en-US
+  filter: mock-event-request.js
+
+---
+- test: When is the next event
+- "When is the next show?":
+  - response.outputSpeech.ssml: The next No Fluff Just Stuff event is Progressive 
+                                Web Experience, Dec 1 - 4, in Clearwater, FL.

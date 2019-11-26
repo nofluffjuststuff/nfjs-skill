@@ -1,0 +1,9 @@
+---
+configuration:
+  locales: en-US
+  filter: mock-speakers-failure.js
+
+---
+- test: Who is presenting
+- "Who is presenting in Boston?":
+  - response.outputSpeech.ssml: I'm unable to get NFJS info right now. Ask again later.

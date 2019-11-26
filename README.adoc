@@ -16,6 +16,15 @@ This project includes a skill.json file, enabling deployment using the https://d
 
 Assuming that you have the ASK CLI installed and have already performed `ask init` to authentication the CLI with your Amazon account, you can deploy the skill by issuing `ask deploy` from within the root directory of the project.
 
+== Testing
+
+If you have Bespoken's BST Tools installed, you can run automated tests (even offline)
+like this:
+
+```
+$ bst test
+```
+
 == Motivation
 
 I had several motivations for developing this skill:

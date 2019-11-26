@@ -16,11 +16,11 @@
       },
       "resources": {
         "manifest": {
-          "eTag": "9b948b995852d89356fe62f316809ec4"
+          "eTag": "c706efecfcb879ea4d38a6747830cb2a"
         },
         "interactionModel": {
           "en-US": {
-            "eTag": "60f4dda470a1d419b107297850cf0bc7"
+            "eTag": "a8ae5cd4f80e72d91643da214f6dc5bd"
           }
         },
         "lambda": [
@@ -33,7 +33,7 @@
             "codeUri": "lambda/custom",
             "functionName": "ask-custom-skill-nfjs-default",
             "handler": "index.handler",
-            "revisionId": "5f3b1725-aacc-4481-88bd-acaa12116135",
+            "revisionId": "5365d919-e138-41de-a9bc-9d3cb1219727",
             "runtime": "nodejs8.10"
           }
         ]

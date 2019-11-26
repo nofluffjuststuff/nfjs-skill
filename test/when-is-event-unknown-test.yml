@@ -1,0 +1,9 @@
+---
+configuration:
+  locales: en-US
+  filter: mock-event-request.js
+
+---
+- test: When is event request
+- "When is the Costa Rica show?":
+  - response.outputSpeech.ssml: I don't know which event you are asking about. Please ask again with the event's name or location.

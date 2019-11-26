@@ -6,7 +6,7 @@ const LaunchRequestHandler = {
     return handlerInput.requestEnvelope.request.type === 'LaunchRequest';
   },
   handle(handlerInput) {
-    const speechText = 'Welcome to No Fluff Just Stuff. Ask me about upcoming NFJS events.'
+    const speechText = 'Welcome to No Fluff Just Stuff. Ask me about upcoming NFJS events. What do you want to know?'
 
     if (supportsDisplay(handlerInput)) {
       const nfjsImage = new Alexa.ImageHelper()
@@ -42,7 +42,7 @@ const HelpIntentHandler = {
       && handlerInput.requestEnvelope.request.intent.name === 'AMAZON.HelpIntent';
   },
   handle(handlerInput) {
-    const speechText = 'Ask me about upcoming events. For example, say "When is the next event?"';
+    const speechText = 'Ask me about upcoming events. For example, you can ask "When is the next event?", "Who is speaking in Boston?" or "When is the Reston show?"';
 
     return handlerInput.responseBuilder
       .speak(speechText)

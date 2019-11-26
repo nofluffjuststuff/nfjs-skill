@@ -1,0 +1,11 @@
+---
+configuration:
+  locales: en-US
+
+---
+- test: Help request
+- Help:
+  - response.outputSpeech.ssml: Ask me about upcoming events. 
+                                For example, you can ask "When is the next event?", 
+                                "Who is speaking in Boston?" or 
+                                "When is the Reston show?"

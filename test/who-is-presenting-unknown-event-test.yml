@@ -1,0 +1,9 @@
+---
+configuration:
+  locales: en-US
+  filter: mock-speakers-unknown-event.js
+
+---
+- test: Who is presenting
+- "Who is presenting in Sioux City?":
+  - response.outputSpeech.ssml: I don't know which event you are asking about. Please ask again with the event's name or location.

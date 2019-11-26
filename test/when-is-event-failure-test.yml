@@ -1,0 +1,9 @@
+---
+configuration:
+  locales: en-US
+  filter: mock-event-request-failure.js
+
+---
+- test: When is event request
+- "When is the Boston show?":
+  - response.outputSpeech.ssml: I'm unable to get NFJS info right now. Ask again later.
