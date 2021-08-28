@@ -1,0 +1,119 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "no fluff just stuff",
+      "intents": [
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "NextEventIntent",
+          "samples": [
+            "where is the next show",
+            "where is the next event",
+            "when is the next show",
+            "when is the next event",
+            "next show",
+            "next event"
+          ]
+        },
+        {
+          "name": "WhosPresentingAtIntent",
+          "slots": [
+            {
+              "name": "eventQuery",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "Who is presenting in {eventQuery}",
+            "Who is speaking in {eventQuery} ",
+            "Who are the speakers at {eventQuery}",
+            "Who are the presenters at {eventQuery}",
+            "{eventQuery} speakers",
+            "{eventQuery} presenters",
+            "Who is speaking at {eventQuery}",
+            "Who is presenting at {eventQuery}",
+            "Who is speaking at the {eventQuery} event",
+            "Who is presenting at the {eventQuery} event"
+          ]
+        },
+        {
+          "name": "WhenIsEventIntent",
+          "slots": [
+            {
+              "name": "eventLoc",
+              "type": "AMAZON.SearchQuery"
+            }
+          ],
+          "samples": [
+            "Where is the {eventLoc} show",
+            "When is the {eventLoc} show",
+            "When is the {eventLoc} event",
+            "Where is the {eventLoc} event",
+            "Where is {eventLoc}",
+            "When is {eventLoc}"
+          ]
+        },
+        {
+          "name": "AMAZON.MoreIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateSettingsIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NextIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageUpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PageDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.PreviousIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollRightIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollDownIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollLeftIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.ScrollUpIntent",
+          "samples": []
+        }
+      ]
+    }
+  },
+  "version": "6"
+}

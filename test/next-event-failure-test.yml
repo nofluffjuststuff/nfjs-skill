@@ -1,9 +1,0 @@
----
-configuration:
-  locales: en-US
-  filter: mock-event-request-failure.js
-
----
-- test: When is the next event
-- "When is the next show?":
-  - response.outputSpeech.ssml: I'm unable to get NFJS info right now. Ask again later.

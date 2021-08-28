@@ -1,9 +1,0 @@
----
-configuration:
-  locales: en-US
-  filter: mock-speakers-request.js
-
----
-- test: Who is presenting
-- "Who is presenting in Madison?":
-  - response.outputSpeech.ssml: "The following speakers are presenting at Greater Wisconsin Software Symposium: Kate Wardin, Craig Walls, Lyndsey Padget, Michael Carducci, Laine Vyvyan, Josh Smith, Venkat Subramaniam, Raju Gandhi, Kirk Knoernschild, and Daniel Hinojosa"
